@@ -6,6 +6,14 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent{
- 
+export class DashboardComponent implements OnInit {
+  public model! : any[];
+  constructor() {
+  }
+  ngOnInit() {
+    const storedData = localStorage.getItem('menuDet');
+    this.model = storedData ? JSON.parse(storedData) : null;
+    console.log(this.model)
+  }
+  
 }

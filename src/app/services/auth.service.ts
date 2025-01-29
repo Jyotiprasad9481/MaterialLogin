@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 export interface User {
   id?: number;
@@ -13,23 +13,33 @@ export interface User {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) { }
 
-  login(email: string, password: string): Observable<boolean> {
-    return this.http.get<User[]>(`${this.apiUrl}/users`).pipe(
-      map(users => {
-        const user = users.find(u => u.email === email && u.password === password);
-        if (user) {
-          localStorage.setItem('token', 'loginToken');
-          return true;
-        }
-        return false;
-      })
-    );
-  }
 
+  login(email: string, password: string) {
+		return this.http.post<any>(this.apiUrl + 'api/user_login', {
+			username: email,
+			password: password
+		}).pipe(catchError(this.handleError), tap(resData => {
+			if (resData.data) {
+				localStorage.setItem('status', resData.status);
+				localStorage.setItem('userDettoken', resData.data.userDettoken);
+				localStorage.setItem('userDet', JSON.stringify(resData.data.userDet));
+				localStorage.setItem('menuDet', JSON.stringify(resData.data.menuDet));
+				localStorage.setItem('links', resData.data.links);
+			}
+		}));
+	}
+	handleError(errorRes: HttpErrorResponse) {
+		if (!errorRes.error || !errorRes.error.error) {
+			return throwError(errorRes);
+		}
+		let errorMessage = 'An Unknown error Occured..';
+		errorMessage = errorRes.error.error.message;
+		return throwError(errorMessage);
+	}
   register(email: string, password: string): Observable<User> {
     return this.http.get<User[]>(`${this.apiUrl}/users`).pipe(
       switchMap(users => {

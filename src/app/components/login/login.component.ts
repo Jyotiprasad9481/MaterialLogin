@@ -19,15 +19,15 @@ export class LoginComponent {
     private router: Router
   ) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      this.authService.login(email, password).subscribe(
+      const { username, password } = this.loginForm.value;
+      this.authService.login(username, password).subscribe(
         success => {
           if (success) {
             this.router.navigate(['/dashboard']);

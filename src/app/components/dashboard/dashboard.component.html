@@ -1,3 +1,31 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div class="display-data">
+    <div class="layout-menu-wrapper" >
+	<div class="menu-logo" >
+		<a href="/#/dashboard" class="logo">
+			<img >
+		</a>
+		<a href="/#/dashboard" class="app-name" >
+			<img  />
+		</a>
+		<a href="#" class="menu-pin" >
+			<span class="pi pi-times"></span>
+			<span class="pi pi-unlock"></span>
+			<span class="pi pi-lock"></span>
+		</a>
+	</div>
+	<div class="layout-menu-container">
+		<ul class="layout-menu">
+			<ng-container *ngFor="let item of model; let i = index;">
+				<li app-menuitem *ngIf="!item.label" ></li>
+				<li *ngIf="item.label" class="menu-separator">{{item.label}}</li>
+			</ng-container>
+		</ul>
+	</div>
+</div>
+<div>
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+
+</div>
+</div>
