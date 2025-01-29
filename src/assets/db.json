@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": 2,
+      "email": "Jyotiprasad@gmail.com",
+      "password": "Jyoti@9481"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Product 1",
+      "description": "Description for Product 1",
+      "price": 99.99,
+      "image": "https://cdn.pixabay.com/photo/2023/08/24/07/46/headphones-8210087_960_720.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Product 2",
+      "description": "Description for Product 2",
+      "price": 149.99,
+      "image": "https://cdn.pixabay.com/photo/2014/10/31/10/01/camera-510530_1280.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Product 3",
+      "description": "Description for Product 3",
+      "price": 199.99,
+      "image": "https://cdn.pixabay.com/photo/2016/02/24/12/30/camera-1219748_1280.jpg"
+    }
+  ]
+}
