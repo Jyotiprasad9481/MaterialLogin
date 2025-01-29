@@ -6,9 +6,14 @@
       "password": "admin123"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "Jyotiprasad@gmail.com",
       "password": "Jyoti@9481"
+    },
+    {
+      "id": 3,
+      "email": "kundan@gmail.com",
+      "password": "123456"
     }
   ],
   "products": [
