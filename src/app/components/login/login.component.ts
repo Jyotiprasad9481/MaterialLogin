@@ -41,4 +41,8 @@ export class LoginComponent {
       );
     }
   }
+  public logout() {
+		localStorage.clear();
+		this.router.navigateByUrl('/login');
+	}
 }

@@ -1,0 +1,4 @@
+.dashboard-content{
+    padding-top: 60px; /* Adjust based on header height */
+  padding-bottom: 60px; /* Adjust based on footer height */
+}

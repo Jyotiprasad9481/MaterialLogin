@@ -24,6 +24,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { AccessDeniedComponent } from './components/_widgets/access-denied/access-denied.component';
+import { BreadcrumbComponent } from './components/_widgets/breadcrumb/breadcrumb.component';
+import { InlineMenuComponent } from './components/_widgets/inline-menu/inline-menu.component';
+import { MenuComponent } from './components/_widgets/menu/menu.component';
+import { TopbarComponent } from './components/_widgets/topbar/topbar.component';
 
 
 
@@ -36,7 +41,12 @@ import { AppRoutingModule } from './app-routing.module';
     AboutComponent,
     HeaderComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+    AccessDeniedComponent,
+    BreadcrumbComponent,
+    InlineMenuComponent,
+    MenuComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
